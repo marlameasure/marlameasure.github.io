@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-PK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f5">
+  <meta name="description" content="Convert square feet, marla, kanal, square yards and square metres with a Pakistani land-area calculator. Choose your marla standard for accurate results.">
+  <meta name="robots" content="index,follow">
+  <!-- CANONICAL_URL -->
+  <title>Marla Calculator Pakistan – Square Feet, Marla &amp; Kanal Converter</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "{{SITE_NAME}}",
+    "applicationCategory": "CalculatorApplication",
+    "operatingSystem": "Any",
+    "description": "A browser-based Pakistani land-area calculator for converting square feet, marla, kanal, square yards, square metres and acres, with selectable marla standards."
+  }
+  </script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="{{SITE_NAME}} home"><span class="brand-mark" aria-hidden="true">M</span><span>{{SITE_NAME}}<small>LAND AREA, MADE CLEAR</small></span></a>
+    <nav aria-label="Main navigation"><a href="#how-it-works">How it works</a><a href="#reference">Quick reference</a><a href="agricultural-land-converter/">Agricultural land</a><a href="#faqs">FAQs</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> A practical Pakistan land-area tool</p>
+        <h1 id="page-title">Marla calculator<br><span>for Pakistan</span></h1>
+        <p class="hero-lede">Convert plot sizes with the marla standard that matches your property documents. Switch between area units or calculate area from plot dimensions.</p>
+        <a href="#calculator" class="text-link">Start converting <span aria-hidden="true">↓</span></a>
+      </div>
+      <aside class="hero-note"><span class="note-icon" aria-hidden="true">↗</span><div><strong>One marla can mean different areas.</strong><p>Choose 225, 250 or 272.25 sq ft per marla, or enter a custom size.</p></div></aside>
+    </section>
+
+    <section id="calculator" class="calculator-card" aria-labelledby="calculator-title">
+      <div class="card-heading"><div><p class="eyebrow">CONVERSION TOOL</p><h2 id="calculator-title">Calculate a land area</h2></div><span class="live-badge"><span></span> Updates as you type</span></div>
+      <div class="standard-row">
+        <div class="standard-label"><label for="marla-standard">Marla standard</label><span>Use the one shown by your scheme or documents.</span></div>
+        <div class="standard-controls"><select id="marla-standard" aria-describedby="standard-help"><option value="225">225 sq ft / marla</option><option value="250">250 sq ft / marla</option><option value="272.25" selected>272.25 sq ft / marla</option><option value="custom">Custom size</option></select><label class="custom-field" id="custom-field" hidden><span class="sr-only">Custom square feet per marla</span><input id="custom-size" type="number" min="0.000001" max="1000000000" step="any" inputmode="decimal" placeholder="sq ft per marla" aria-label="Custom square feet per marla"></label></div>
+      </div>
+      <p class="standard-help" id="standard-help">This calculator uses your selection for every marla and kanal result. Local practices and property records can differ.</p>
+      <div class="mode-switch" role="tablist" aria-label="Calculator type"><button type="button" id="convert-tab" role="tab" aria-selected="true" aria-controls="convert-panel">Unit converter</button><button type="button" id="dimensions-tab" role="tab" aria-selected="false" aria-controls="dimensions-panel" tabindex="-1">Plot dimensions</button></div>
+
+      <div id="convert-panel" role="tabpanel" aria-labelledby="convert-tab">
+        <div class="conversion-grid">
+          <div class="entry-block"><label for="amount">You have</label><input id="amount" type="number" min="0" max="1e15" step="any" inputmode="decimal" value="5" aria-describedby="convert-error"><select id="from-unit" aria-label="Convert from"><option value="sqft">Square feet (sq ft)</option><option value="marla" selected>Marla</option><option value="kanal">Kanal</option><option value="sqyd">Square yards (sq yd)</option><option value="sqm">Square metres (m²)</option><option value="acre">Acres</option></select></div>
+          <button class="swap-button" id="swap-units" type="button" aria-label="Swap units" title="Swap units">↔</button>
+          <div class="entry-block"><label for="to-unit">Convert to</label><div class="result-input" aria-live="polite"><output id="main-result" for="amount from-unit to-unit">1,361.25</output><span id="result-unit-label">sq ft</span></div><select id="to-unit" aria-label="Convert to"><option value="sqft" selected>Square feet (sq ft)</option><option value="marla">Marla</option><option value="kanal">Kanal</option><option value="sqyd">Square yards (sq yd)</option><option value="sqm">Square metres (m²)</option><option value="acre">Acres</option></select></div>
+        </div>
+        <p class="input-error" id="convert-error" role="status" aria-live="polite"></p>
+        <p class="result-context" id="conversion-context">Using 272.25 sq ft per marla · 1 kanal = 20 marla</p>
+        <div class="action-row"><button type="button" class="button-secondary" id="copy-result">Copy result</button><button type="button" class="button-quiet" id="reset-converter">Reset</button><span class="copy-status" id="copy-status" role="status" aria-live="polite"></span></div>
+        <div class="equivalents" aria-label="Equivalent areas"><div><span>Square feet</span><strong id="eq-sqft">1,361.25</strong></div><div><span>Square yards</span><strong id="eq-sqyd">151.25</strong></div><div><span>Square metres</span><strong id="eq-sqm">126.47</strong></div><div><span>Kanal</span><strong id="eq-kanal">0.25</strong></div><div><span>Acres</span><strong id="eq-acre">0.03</strong></div></div>
+      </div>
+
+      <div id="dimensions-panel" role="tabpanel" aria-labelledby="dimensions-tab" hidden>
+        <div class="dimension-grid"><div class="entry-block"><label for="length">Length</label><input id="length" type="number" min="0" max="1e9" step="any" inputmode="decimal" placeholder="e.g. 30"></div><span class="multiply" aria-hidden="true">×</span><div class="entry-block"><label for="width">Width</label><input id="width" type="number" min="0" max="1e9" step="any" inputmode="decimal" placeholder="e.g. 60"></div><div class="entry-block unit-entry"><label for="dimension-unit">Dimensions in</label><select id="dimension-unit"><option value="ft">Feet</option><option value="m">Metres</option></select></div></div>
+        <p class="input-error" id="dimension-error" role="status" aria-live="polite"></p>
+        <div class="dimension-result"><span>Calculated rectangular area</span><strong id="dimension-marla">—</strong><p id="dimension-summary">Enter length and width to see the area and its equivalents.</p><div class="dimension-equivalents"><span id="dimension-sqft">— sq ft</span><span id="dimension-sqyd">— sq yd</span><span id="dimension-sqm">— m²</span><span id="dimension-kanal">— kanal</span></div></div>
+        <p class="small-note">This is an area calculation from the dimensions entered. It does not verify a plot’s official or recorded area.</p>
+      </div>
+    </section>
+
+    <section class="quick-section" aria-labelledby="quick-title"><div class="section-heading"><div><p class="eyebrow">AT A GLANCE</p><h2 id="quick-title">Common plot sizes</h2></div><p>Square feet for the selected marla standard</p></div><div class="quick-chips" id="quick-examples" aria-label="Common marla conversions"><button type="button" data-marla="3"><span>3 marla</span><strong>816.75 sq ft</strong></button><button type="button" data-marla="5"><span>5 marla</span><strong>1,361.25 sq ft</strong></button><button type="button" data-marla="10"><span>10 marla</span><strong>2,722.50 sq ft</strong></button><button type="button" data-marla="20"><span>1 kanal</span><strong>5,445 sq ft</strong></button></div></section>
+
+    <section class="content-section" id="how-it-works"><div class="content-intro"><p class="eyebrow">A CLEARER WAY TO CONVERT</p><h2>How to use the marla calculator</h2><p>Choose the marla size used for your property, enter a measurement and select its unit. The result and equivalent areas update instantly. Use <em>Plot dimensions</em> to multiply a rectangle’s length by its width.</p><ol class="steps"><li><span>01</span><div><strong>Check your property context</strong><p>Use the marla size stated by your housing scheme or property documents.</p></div></li><li><span>02</span><div><strong>Enter a number and units</strong><p>Convert area units, or switch modes and enter rectangular plot dimensions.</p></div></li><li><span>03</span><div><strong>Read or copy the result</strong><p>Results are rounded for display; calculations retain full precision until then.</p></div></li></ol></div><div class="formula-card"><span class="formula-icon" aria-hidden="true">ƒ</span><p class="eyebrow">THE CORE FORMULA</p><strong>marla = sq ft ÷ sq ft per marla</strong><span class="formula-divider"></span><p>Example at 272.25 sq ft per marla</p><div class="formula-example"><span>1,361.25 sq ft</span><b>=</b><span>5 marla</span></div><small>1 kanal = 20 marla in this calculator.</small></div></section>
+
+    <section class="reference-section" id="reference"><div class="section-heading"><div><p class="eyebrow">COMPARE BEFORE YOU CONVERT</p><h2>How many square feet are in a marla?</h2></div><p>There is no single value used in every property context.</p></div><div class="standards-grid"><article><span class="standard-index">01</span><h3>225 sq ft</h3><p>One commonly used plot-size convention.</p><div class="standard-5">5 marla <strong>1,125 sq ft</strong></div></article><article><span class="standard-index">02</span><h3>250 sq ft</h3><p>Another convention used in some schemes.</p><div class="standard-5">5 marla <strong>1,250 sq ft</strong></div></article><article class="featured-standard"><span class="standard-index">03</span><h3>272.25 sq ft</h3><p>A traditional measurement often used in land conversions.</p><div class="standard-5">5 marla <strong>1,361.25 sq ft</strong></div></article></div><p class="caution-note"><span aria-hidden="true">i</span> Practices differ between housing schemes, local contexts and property records. Confirm the applicable area in the relevant documents or with the appropriate authority.</p>
+      <div class="table-heading"><div><h3>Marla to square feet reference</h3><p id="table-standard">Based on 272.25 square feet per marla</p></div><span>Table follows your selected standard</span></div><div class="table-wrap" tabindex="0" role="region" aria-label="Marla to square feet reference table"><table><thead><tr><th scope="col">Marla</th><th scope="col">Square feet</th><th scope="col">Kanal</th></tr></thead><tbody id="reference-rows"><tr><th scope="row">1 marla</th><td>272.25</td><td>0.05</td></tr><tr><th scope="row">3 marla</th><td>816.75</td><td>0.15</td></tr><tr><th scope="row">5 marla</th><td>1,361.25</td><td>0.25</td></tr><tr><th scope="row">10 marla</th><td>2,722.50</td><td>0.50</td></tr><tr><th scope="row">20 marla (1 kanal)</th><td>5,445</td><td>1.00</td></tr></tbody></table></div>
+    </section>
+
+    <section class="content-section reverse" id="conversion-guide"><div class="content-intro"><p class="eyebrow">FORMULAS &amp; EXAMPLES</p><h2>Convert marla, square feet and kanal</h2><p>All area conversions below use the same selected marla size. This keeps the calculator, examples and reference table consistent.</p><div class="guide-pair"><article><span class="guide-number">A</span><h3>Square feet to marla</h3><p>Divide square feet by the chosen square feet per marla.</p><code>marla = square feet ÷ marla size</code><small>For 1,000 sq ft at 250 sq ft per marla: 1,000 ÷ 250 = 4 marla.</small></article><article><span class="guide-number">B</span><h3>Marla to square feet</h3><p>Multiply marla by the chosen square feet per marla.</p><code>square feet = marla × marla size</code><small>For 5 marla at 225 sq ft per marla: 5 × 225 = 1,125 sq ft.</small></article></div></div><div class="guide-aside"><h3>Kanal and marla</h3><p>This calculator follows the convention of 20 marla in one kanal.</p><div class="kanal-row"><span>1 kanal</span><b>20 marla</b></div><div class="kanal-row"><span>½ kanal</span><b>10 marla</b></div><div class="kanal-row"><span>¼ kanal</span><b>5 marla</b></div><p class="guide-aside-foot">The kanal-to-marla ratio stays the same when you change the marla area standard.</p></div></section>
+
+    <section class="dimension-explainer"><div class="dimension-symbol" aria-hidden="true">↗</div><div><p class="eyebrow">PLOT DIMENSIONS</p><h2>Find area from length and width</h2><p>For a rectangular plot, multiply length by width using the same unit. For example, a 30 ft × 60 ft plot has an area of 1,800 sq ft. Divide that area by the selected marla size to express it in marla. Irregular plots may need a more detailed measurement.</p></div><a href="#calculator" class="outline-link" data-open-dimensions>Calculate dimensions <span aria-hidden="true">→</span></a></section>
+
+    <section class="agri-promo"><div><p class="eyebrow">A DIFFERENT LAND-MEASUREMENT TASK</p><h2>Converting agricultural land?</h2><p>Convert Murabba to acres, kanal, marla and square feet using the 25-acre Murabba convention, with the marla standard clearly shown.</p></div><a class="outline-link" href="agricultural-land-converter/">Open agricultural land converter <span aria-hidden="true">→</span></a></section>
+
+    <section class="faq-section" id="faqs"><div class="section-heading"><div><p class="eyebrow">QUICK ANSWERS</p><h2>Frequently asked questions</h2></div><p>Practical notes on land area conversions in Pakistan.</p></div><div class="faq-list">
+      <details><summary>How many square feet are in one marla in Pakistan?</summary><p>It depends on the property convention. This calculator supports 225, 250 and 272.25 sq ft per marla, plus a custom value. Check the applicable standard in the scheme’s documents or your property records.</p></details>
+      <details><summary>How do I convert square feet to marla?</summary><p>Divide the area in square feet by the chosen square feet per marla. For example, 1,250 sq ft is 5 marla when using 250 sq ft per marla.</p></details>
+      <details><summary>How many marla are in one kanal?</summary><p>This calculator uses 20 marla per kanal. One kanal is therefore 20 marla regardless of which square-foot marla size you select.</p></details>
+      <details><summary>How many square feet are in 5 marla?</summary><p>It depends on the selected standard: 1,125 sq ft at 225 sq ft per marla, 1,250 sq ft at 250, or 1,361.25 sq ft at 272.25.</p></details>
+      <details><summary>How do I calculate marla from plot length and width?</summary><p>Multiply length by width to find the rectangular area. If dimensions are in feet, divide the result in square feet by the selected marla size. If dimensions are in metres, convert the area to square feet first; the dimensions mode does this automatically.</p></details>
+      <details><summary>Why do different calculators show different marla results?</summary><p>They may use different square-foot definitions for a marla. Select the value relevant to your property and check the convention used by any calculator you compare with.</p></details>
+      <details><summary>Can I use a custom marla size?</summary><p>Yes. Select Custom size and enter a positive square-foot value per marla. That value is used for all marla and kanal area calculations on the page.</p></details>
+      <details><summary>Does this calculator verify a plot’s official area?</summary><p>No. It converts values you enter and calculates area from dimensions. It does not check property documents, boundaries, legal status or official records.</p></details>
+    </div></section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">M</span><span>{{SITE_NAME}}<small>LAND AREA, MADE CLEAR</small></span></a><p>Independent browser-based area conversions. Always check the applicable marla convention in your property documents.</p><nav aria-label="Footer navigation"><a href="#how-it-works">About this tool</a><a href="#contact-note">Contact</a><a href="#privacy-note">Privacy</a></nav><small class="privacy-note" id="privacy-note">Calculations happen in your browser. This site does not send entered measurements to a server.</small><small class="privacy-note" id="contact-note">Contact details can be added in the site configuration before launch.</small><span class="copyright">© <span id="year">2026</span> {{SITE_NAME}}</span></footer>
+</body>
+</html>

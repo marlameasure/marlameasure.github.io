@@ -1,0 +1,53 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Run calculation tests
+        run: npm test
+      - name: Set GitHub Pages public URL when no custom URL is configured
+        run: |
+          node --input-type=module -e '
+            import fs from "node:fs";
+            const config = JSON.parse(fs.readFileSync("site.config.json", "utf8"));
+            const owner = process.env.GITHUB_REPOSITORY_OWNER;
+            const repo = process.env.GITHUB_REPOSITORY.split("/")[1];
+            const ownerSite = repo.toLowerCase() === `${owner}.github.io`.toLowerCase();
+            const publicUrl = config.publicUrl || `https://${owner}.github.io${ownerSite ? "" : `/${repo}`}`;
+            fs.appendFileSync(process.env.GITHUB_ENV, `SITE_URL=${publicUrl}\n`);
+            console.log(`Building for ${publicUrl}`);
+          '
+      - name: Build site
+        run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

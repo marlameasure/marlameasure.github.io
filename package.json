@@ -1,0 +1,12 @@
+{
+  "name": "pakistan-land-area-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A static Pakistani land-area and marla calculator.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test --test-isolation=none tests/*.test.mjs",
+    "preview": "node scripts/preview.mjs"
+  }
+}

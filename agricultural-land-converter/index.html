@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-PK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f5">
+  <meta name="description" content="Convert Murabba to acres, kanal, marla and square feet. This Pakistan agricultural land calculator states its 25-acre Murabba convention and selected marla standard.">
+  <meta name="robots" content="index,follow">
+  <!-- CANONICAL_URL -->
+  <title>Agricultural Land Converter Pakistan – Murabba to Acre, Kanal &amp; Marla</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "{{SITE_NAME}} Agricultural Land Converter",
+    "applicationCategory": "CalculatorApplication",
+    "operatingSystem": "Any",
+    "description": "A browser-based agricultural land area converter using an explicit 25-acre-per-Murabba convention and selectable marla standards."
+  }
+  </script>
+  <script type="module" src="../agricultural.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#agricultural-calculator">Skip to converter</a>
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="{{SITE_NAME}} home"><span class="brand-mark" aria-hidden="true">M</span><span>{{SITE_NAME}}<small>LAND AREA, MADE CLEAR</small></span></a>
+    <nav aria-label="Main navigation"><a href="../#calculator">Marla calculator</a><a href="../#reference">Marla standards</a><a href="./">Agricultural land</a></nav>
+  </header>
+  <main>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><span aria-current="page">Agricultural land converter</span></nav>
+    <section class="hero agri-hero" aria-labelledby="page-title">
+      <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> A separate tool for agricultural land</p><h1 id="page-title">Agricultural land<br><span>converter</span></h1><p class="hero-lede">Convert Murabba into acres, kanal, marla and square feet. The Murabba convention and marla standard used in your result stay visible.</p></div>
+      <aside class="hero-note"><span class="note-icon" aria-hidden="true">25</span><div><strong>1 Murabba = 25 acres</strong><p>This page uses a common Punjab agricultural convention. Confirm the unit used in your land records.</p></div></aside>
+    </section>
+
+    <section class="calculator-card" id="agricultural-calculator" aria-labelledby="calculator-title">
+      <div class="card-heading"><div><p class="eyebrow">AGRICULTURAL AREA CONVERTER</p><h2 id="calculator-title">Convert a land area</h2></div><span class="live-badge"><span></span> Updates as you type</span></div>
+      <div class="standard-row"><div class="standard-label"><label for="agri-standard">Marla standard</label><span>Used only for Marla and Kanal equivalents.</span></div><div class="standard-controls"><select id="agri-standard" aria-describedby="agri-standard-help"><option value="225">225 sq ft / marla</option><option value="250">250 sq ft / marla</option><option value="272.25" selected>272.25 sq ft / marla</option><option value="custom">Custom size</option></select><label class="custom-field" id="agri-custom-field" hidden><span class="sr-only">Custom square feet per marla</span><input id="agri-custom-size" type="number" min="0.000001" max="1000000000" step="any" inputmode="decimal" placeholder="sq ft per marla" aria-label="Custom square feet per marla"></label></div></div>
+      <p class="standard-help" id="agri-standard-help">The selected value affects Marla and Kanal equivalents. One Murabba remains 25 acres under this page’s stated convention.</p>
+      <div class="agri-conversion-grid"><div class="entry-block"><label for="agri-amount">You have</label><input id="agri-amount" type="number" min="0" max="1e15" step="any" inputmode="decimal" value="1" aria-describedby="agri-error"><select id="agri-from" aria-label="Convert from"><option value="murabba" selected>Murabba</option><option value="acre">Acres</option><option value="kanal">Kanal</option><option value="marla">Marla</option><option value="sqft">Square feet (sq ft)</option></select></div><button class="swap-button" id="agri-swap" type="button" aria-label="Swap units">↔</button><div class="entry-block"><label for="agri-to">Convert to</label><div class="result-input" aria-live="polite"><output id="agri-result" for="agri-amount agri-from agri-to">25</output><span id="agri-result-unit">acres</span></div><select id="agri-to" aria-label="Convert to"><option value="murabba">Murabba</option><option value="acre" selected>Acres</option><option value="kanal">Kanal</option><option value="marla">Marla</option><option value="sqft">Square feet (sq ft)</option></select></div></div>
+      <p class="input-error" id="agri-error" role="status" aria-live="polite"></p><p class="result-context" id="agri-context">Using 25 acres per Murabba · 1 kanal = 20 marla · 272.25 sq ft per marla</p>
+      <div class="action-row"><button type="button" class="button-secondary" id="agri-copy">Copy result</button><button type="button" class="button-quiet" id="agri-reset">Reset</button><span class="copy-status" id="agri-copy-status" role="status" aria-live="polite"></span></div>
+      <div class="equivalents agri-equivalents" aria-label="Equivalent agricultural land areas"><div><span>Murabba</span><strong id="agri-eq-murabba">1</strong></div><div><span>Acres</span><strong id="agri-eq-acre">25</strong></div><div><span>Kanal</span><strong id="agri-eq-kanal">200</strong></div><div><span>Marla</span><strong id="agri-eq-marla">4,000</strong></div><div><span>Square feet</span><strong id="agri-eq-sqft">1,089,000</strong></div></div>
+    </section>
+
+    <section class="agri-guide content-section" id="murabba-guide"><div class="content-intro"><p class="eyebrow">THE CONVERSION ASSUMPTION</p><h2>How to convert Murabba to acres</h2><p>This converter uses 1 Murabba = 25 acres, a convention found in Punjab agricultural land references. Multiply Murabba by 25 to get acres, or divide acres by 25 to get Murabba. Check your local land record for the convention that applies to your holding.</p><div class="formula-card agri-formula"><p class="eyebrow">FORMULA</p><strong>acres = Murabba × 25</strong><span class="formula-divider"></span><div class="formula-example"><span>2 Murabba</span><b>=</b><span>50 acres</span></div></div></div><aside class="guide-aside"><h3>Marla and Kanal depend on the selected standard</h3><p>For the default 272.25 sq ft marla setting:</p><div class="kanal-row"><span>1 Murabba</span><b>200 kanal</b></div><div class="kanal-row"><span>1 Murabba</span><b>4,000 marla</b></div><p class="guide-aside-foot">At a different marla size, the acreage stays fixed while the Marla and Kanal equivalents change.</p></aside></section>
+
+    <section class="reference-section agri-reference" id="agri-reference"><div class="section-heading"><div><p class="eyebrow">QUICK REFERENCE</p><h2>Murabba conversion table</h2></div><p id="agri-table-standard">Acres use 25 acres per Murabba; Marla and Kanal follow 272.25 sq ft per marla.</p></div><div class="table-wrap" tabindex="0" role="region" aria-label="Murabba to acres, kanal and marla reference table"><table><thead><tr><th scope="col">Murabba</th><th scope="col">Acres</th><th scope="col">Kanal</th><th scope="col">Marla</th></tr></thead><tbody id="agri-table"><tr><th scope="row">1 Murabba</th><td>25</td><td>200</td><td>4,000</td></tr><tr><th scope="row">2 Murabba</th><td>50</td><td>400</td><td>8,000</td></tr><tr><th scope="row">5 Murabba</th><td>125</td><td>1,000</td><td>20,000</td></tr><tr><th scope="row">10 Murabba</th><td>250</td><td>2,000</td><td>40,000</td></tr></tbody></table></div><p class="caution-note"><span aria-hidden="true">i</span> Murabba is a large agricultural-area unit with regional conventions. This page applies 25 acres per Murabba; it is a conversion aid, not verification of recorded land area.</p></section>
+
+    <section class="faq-section agri-faq" id="faqs"><div class="section-heading"><div><p class="eyebrow">QUICK ANSWERS</p><h2>Murabba conversion questions</h2></div><p>About the agricultural-unit convention used here.</p></div><div class="faq-list"><details><summary>How many acres are in one Murabba?</summary><p>This calculator uses 25 acres per Murabba, a common Punjab agricultural convention. Confirm the definition in the relevant land records.</p></details><details><summary>How many kanal are in one Murabba?</summary><p>At 25 acres per Murabba and the default 272.25 sq ft marla standard, one Murabba equals 200 kanal. The result changes with the selected marla standard because kanal area is based on 20 marla.</p></details><details><summary>How many marla are in one Murabba?</summary><p>At the default 272.25 sq ft per marla, 25 acres equal 4,000 marla. Select the marla standard used by your records to see a different equivalent if needed.</p></details><details><summary>Does this converter confirm the size in my land record?</summary><p>No. It applies the stated conversion convention to the number you enter. Check the relevant land record or authority for the official area and local unit definitions.</p></details></div></section>
+    <section class="cross-link-card"><div><p class="eyebrow">RESIDENTIAL PLOTS</p><h2>Need a marla or plot-size conversion?</h2><p>Use the main calculator for square feet, marla, kanal, square yards, square metres and rectangular plot dimensions.</p></div><a class="outline-link" href="../#calculator">Open the marla calculator <span aria-hidden="true">→</span></a></section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="../"><span class="brand-mark" aria-hidden="true">M</span><span>{{SITE_NAME}}<small>LAND AREA, MADE CLEAR</small></span></a><p>Browser-based agricultural area conversions. Verify the conventions used in your local land records.</p><nav aria-label="Footer navigation"><a href="../#how-it-works">About this tool</a><a href="../#contact-note">Contact</a><a href="../#privacy-note">Privacy</a></nav><small class="privacy-note">Calculations run in your browser and are not sent to a server.</small><span class="copyright">© <span id="year">2026</span> {{SITE_NAME}}</span></footer>
+</body>
+</html>

@@ -14,7 +14,7 @@ if (publicUrl) {
 
 await rm(out, { recursive: true, force: true });
 await mkdir(out, { recursive: true });
-for (const file of ['index.html', 'styles.css', 'app.js', 'agricultural.js', 'calculator.js', 'favicon.svg']) await cp(path.join(root, file), path.join(out, file));
+for (const file of ['index.html', 'styles.css', 'app.js', 'agricultural.js', 'calculator.js', 'favicon.svg', 'favicon.png']) await cp(path.join(root, file), path.join(out, file));
 await cp(path.join(root, 'agricultural-land-converter'), path.join(out, 'agricultural-land-converter'), { recursive: true });
 const htmlPath = path.join(out, 'index.html');
 let html = await readFile(htmlPath, 'utf8');
